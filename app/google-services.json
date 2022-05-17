@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "612788593562",
+    "project_id": "akcsit-protikdatta",
+    "storage_bucket": "akcsit-protikdatta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612788593562:android:2f006cb17d080237b5d023",
+        "android_client_info": {
+          "package_name": "com.example.akcsit_protikdatta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612788593562-p4bn9om3hrvj5euhfmlfnm0776dpmhmh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFfx2FtgroSiwaqAz-zHvfOcWKwmnxHQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612788593562-p4bn9om3hrvj5euhfmlfnm0776dpmhmh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

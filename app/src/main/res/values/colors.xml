@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pink">#f8a6a6</color>
+    <color name="light_pink">#F8E3E3</color>
+    <color name="dark_pink">#F47273</color>
+    <color name="yellow">#FBF2A3</color>
+    <color name="light_yellow">#F8F8D4</color>
+    <color name="dark_yellow">#FFF05C</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="loadingScreen">#7289d9</color>
+
+</resources>
