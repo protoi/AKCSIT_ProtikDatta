@@ -71,8 +71,8 @@ FirebaseAuth auth;
         emailLayout.setError("");
 
 //        name = String.valueOf(nameInput.getText());
-        email = emailInput.getText().toString().trim();
-        pass = pwdInput.getText().toString().trim();
+        email = String.valueOf(emailInput.getText()).trim();
+        pass = String.valueOf(pwdInput.getText()).trim();
 
         if(email.isEmpty())
         {

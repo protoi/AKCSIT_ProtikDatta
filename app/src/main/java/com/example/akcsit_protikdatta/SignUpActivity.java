@@ -13,6 +13,10 @@ import com.example.akcsit_protikdatta.databinding.ActivitySignUpBinding;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
     ActivitySignUpBinding binding;
@@ -23,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     String name, gender, contact, email, pass;
     FirebaseAuth auth;
+    FirebaseFirestore fs;
 
 
     @Override
@@ -53,6 +58,10 @@ public class SignUpActivity extends AppCompatActivity {
         //firebase authentication instance creation
         auth = FirebaseAuth.getInstance();
 
+        //firestore instance
+
+        fs = FirebaseFirestore.getInstance();
+
         //to get data from radio button under radio group
 
         radioGroup.setOnCheckedChangeListener((radioGroup1, i) ->{
@@ -79,6 +88,27 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
+
+        private void storeInfo(String usrId) {
+            Map<String, Object> userMap = new HashMap<>();
+            userMap.put("name", name);
+            userMap.put("email", email);
+            userMap.put("contact", contact);
+            userMap.put("gender", gender);
+
+            fs.collection("user_info")
+                    .document(usrId)
+                    .set(userMap)
+                    .addOnSuccessListener(unused -> {
+                        Toast.makeText(SignUpActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+
+                    })
+                    .addOnFailureListener( e-> {
+                        Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        }
+
+
         public void doRegister()
         {
             auth.createUserWithEmailAndPassword(email, pass)
@@ -88,7 +118,7 @@ public class SignUpActivity extends AppCompatActivity {
                             String usrID = auth.getUid();
                             //to verify email
                             auth.getCurrentUser().sendEmailVerification();
-                            Toast.makeText(SignUpActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                            storeInfo(usrID);
                         }
                         else
                             Toast.makeText(this, "Try Later", Toast.LENGTH_SHORT).show();
@@ -107,10 +137,10 @@ public class SignUpActivity extends AppCompatActivity {
             nameLayout.setError("");
             emailLayout.setError("");
 
-            name = nameInput.getText().toString().trim();
-            email = emailInput.getText().toString().trim();
-            contact = String.valueOf(phoneInput.getText());
-            pass = pwdInput.getText().toString().trim();
+            name = String.valueOf(nameInput.getText()).trim();
+            email = String.valueOf(emailInput.getText()).trim();
+            contact = String.valueOf(phoneInput.getText()).trim();
+            pass = String.valueOf(pwdInput.getText()).trim();
 //            performing validations
 
             if (gender == null) {
