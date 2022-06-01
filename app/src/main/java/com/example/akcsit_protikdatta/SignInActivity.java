@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.akcsit_protikdatta.databinding.ActivitySignInBinding;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -100,8 +101,19 @@ FirebaseAuth auth;
 
                     if(user != null)
                         if(user.isEmailVerified()) {
+                            //storing stuff in local storage
+                            LocalSession session = new LocalSession(SignInActivity.this);
+                            session.storeLogin();
+                            session.storeCredential(user.getUid(), email);
+                            Toast.makeText(this, "data stored locally", Toast.LENGTH_LONG).show();
+
+                            Snackbar.make(binding.getRoot(), "LOGIN SUCCESSFUL", Snackbar.LENGTH_SHORT).show();
+
                             //route to dashboard
-                            Toast.makeText(this, "LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
+
+                            Intent dash = new Intent(SignInActivity.this, DashboardActivity.class); //message passing object
+                            startActivity(dash);
+                            SignInActivity.this.finish(); //destroy the lifecycle of the activity
                         }
                     else
                         Toast.makeText(this, "Sorry email verification failed", Toast.LENGTH_SHORT).show();

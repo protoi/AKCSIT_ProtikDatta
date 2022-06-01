@@ -10,9 +10,10 @@
     <string name="submit">submit</string>
     <string name="select_gender">select gender</string>
     <string name="already_have_an_account_sign_in_now">already have an account? Sign in Now</string>
-<!--    <string name="username">Username</string>-->
+    <!--    <string name="username">Username</string>-->
     <string name="don_t_have_an_account_sign_up_now">Don\'t have an account? Sign Up Now</string>
     <string name="logo_placeholder">logo placeholder</string>
     <string name="suscord">SUSCORD</string>
     <string name="suscord_logo">suscord logo</string>
+    <string name="sign_out">Sign Out</string>
 </resources>
