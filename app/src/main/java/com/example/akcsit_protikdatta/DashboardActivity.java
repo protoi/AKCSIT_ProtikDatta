@@ -3,6 +3,7 @@ package com.example.akcsit_protikdatta;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +33,11 @@ public class DashboardActivity extends AppCompatActivity {
         {
             new LocalSession(DashboardActivity.this).delete();
             DashboardActivity.this.finishAffinity();
+        }
+        if(item.getItemId() ==R.id.menu_profile)
+        {
+            Intent in = new Intent(DashboardActivity.this, ProfileActivity.class);
+            startActivity(in);
         }
         return super.onOptionsItemSelected(item);
     }

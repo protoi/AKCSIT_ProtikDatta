@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AKCSIT_ProtikDatta</string>
+    <string name="app_name">Suscord</string>
     <string name="username">Username</string>
     <string name="email">email</string>
     <string name="password">password</string>
@@ -16,4 +16,5 @@
     <string name="suscord">SUSCORD</string>
     <string name="suscord_logo">suscord logo</string>
     <string name="sign_out">Sign Out</string>
+    <string name="profile">profile</string>
 </resources>
